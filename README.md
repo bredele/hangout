@@ -2,6 +2,8 @@ hangout
 =====
 
   A secured peer to peer video application.
+  
+  Hangout is an experiment and is not ready yet. I hope having something working correctly in the next few days.
 
 
 ## Installation
