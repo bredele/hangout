@@ -698,6 +698,7 @@ require.register("component~indexof@0.0.3", Function("exports, module",
   }\n\
   return -1;\n\
 };\n\
+\n\
 //# sourceURL=components/component/indexof/0.0.3/index.js"
 ));
 
@@ -1301,7 +1302,7 @@ require.modules["bredele~emitter-queue"] = require.modules["bredele~emitter-queu
 require.modules["emitter-queue"] = require.modules["bredele~emitter-queue@master"];
 
 
-require.register("bredele~peer@0.1.0", Function("exports, module",
+require.register("bredele~peer@0.1.1", Function("exports, module",
 "\n\
 /**\n\
  * Module dependencies.\n\
@@ -1493,7 +1494,6 @@ Peer.prototype.offer = deus('function', 'object', function(fn, opts) {\n\
  */\n\
 \n\
 Peer.prototype.answer = deus('function', 'object', function(fn, opts) {\n\
-\tconsole.log(opts, fn);\n\
 \tvar _this = this;\n\
 \tthis.connection.createAnswer(function(offer) {\n\
 \t\t_this.connection.setLocalDescription(offer);\n\
@@ -1514,12 +1514,12 @@ Peer.prototype.answer = deus('function', 'object', function(fn, opts) {\n\
 \n\
 Peer.prototype.codec = Peer.prototype.use;\n\
 \n\
-//# sourceURL=components/bredele/peer/0.1.0/index.js"
+//# sourceURL=components/bredele/peer/0.1.1/index.js"
 ));
 
-require.modules["bredele-peer"] = require.modules["bredele~peer@0.1.0"];
-require.modules["bredele~peer"] = require.modules["bredele~peer@0.1.0"];
-require.modules["peer"] = require.modules["bredele~peer@0.1.0"];
+require.modules["bredele-peer"] = require.modules["bredele~peer@0.1.1"];
+require.modules["bredele~peer"] = require.modules["bredele~peer@0.1.1"];
+require.modules["peer"] = require.modules["bredele~peer@0.1.1"];
 
 
 require.register("bredele~channel@0.0.1", Function("exports, module",
@@ -1655,7 +1655,6 @@ module.exports = function signal(room, address) {\n\
     \n\
     socket.on('master offer', function(offer) {\n\
       peer.remote(offer);\n\
-      console.log('create answer');\n\
       peer.answer(function(token) {\n\
         peer.local(token);\n\
         socket.emit('slave offer', token);\n\
@@ -1665,7 +1664,6 @@ module.exports = function signal(room, address) {\n\
     // slave is connected\n\
     \n\
     socket.on('slave', function() {\n\
-      console.log('create offer');\n\
       peer.offer(function(offer) {\n\
         socket.emit('master offer', offer);\n\
       });\n\

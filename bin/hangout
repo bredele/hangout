@@ -42,12 +42,12 @@ program.parse(process.argv);
 
 var port = program.port || 3000;
 
-open('http://localhost:' + port);
 server(port);
 
 localtunnel(port, function(err, tunnel) {
   if (err) {
     console.log('error', err);
   }
+  open(tunnel.url);
   console.log(tunnel.url);
 });
