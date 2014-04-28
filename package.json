@@ -1,7 +1,7 @@
 {
   "name": "hangout",
   "version": "0.0.0",
-  "description": "hangout =======",
+  "description": "Peer to peer video application through localtunnel.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
