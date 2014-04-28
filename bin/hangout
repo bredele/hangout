@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var localtunnel = require('localtunnel');
+var server = require('./signaler.js');
+var open = require('open');
+
+
+/**
+ * Usage.
+ */
+
+program
+  .version(require('../package.json').version)
+  .option('-p, --port <port>', 'hangout port', 3000);
+
+
+/**
+ * Examples.
+ */
+
+program.on('--help', function () {
+  console.log('  Examples:');
+  console.log();
+  console.log('    # create a hangout:');
+  console.log('    $ hangout');
+  console.log();
+  console.log('    # create a hangout with the port you want:');
+  console.log('    $ hangout -p 8000');
+  console.log();
+});
+
+
+/**
+ * Parse.
+ */
+
+program.parse(process.argv);
+
+
+// create port
+
+var port = program.port || 3000;
+
+open('http://localhost:' + port);
+server(port);
+
+localtunnel(port, function(err, tunnel) {
+  if (err) {
+    console.log('error', err);
+  }
+  console.log(tunnel.url);
+});

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hangout</title>
+</head>
+<body>
+	<body>
+		<video class="skype" muted></video>
+		<video class="remote" autoplay muted></video>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="./app.js"></script>
+		<script>
+		  var peer = require('peer');
+		  var channel = require('channel');
+		  var signal = require('signal');
+		  var video = require('video');
+		  var channel = require('channel');
+
+		  var foo = peer();
+
+		  foo.on('remote stream', function(stream) {
+		  	document.querySelector('.remote').src = window.URL.createObjectURL(stream);
+		  });
+
+		  // to preserve the order: create, add stream and then offer/answer
+		  foo.on('stream', function() {
+		  	foo.use(signal('room'));
+		  });
+
+		  foo.on('message', function(data) {
+		  	console.log(data);
+		  });
+
+		  foo.use(channel('skype'));
+		  foo.use(video('.skype'));
+		</script>
+	</body>
+</body>
+</html>
