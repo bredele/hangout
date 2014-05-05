@@ -1,0 +1,19 @@
+{
+  "name": "hangout",
+  "repository": "bredele/hangout",
+  "description": "webrtc hangout made easy",
+  "version": "0.0.0",
+  "keywords": [],
+  "dependencies": {
+    "bredele/peer": "~0.1.4",
+    "bredele/video": "~0.1.0",
+    "bredele/signal": "~0.0.2",
+    "bredele/opus": "~0.1.0"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}

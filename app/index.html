@@ -3,9 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hangout</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/component.css">	
 </head>
 <body>
 	<body>
+		<section class="intro">
+			<h2>This is an example for a new page.</h2>
+			<p>
+				<a class="pageload-link" href="#page-1">Connect</a>
+			</p>
+		</section>
 		<video class="skype" muted></video>
 		<video class="remote" autoplay muted></video>
 		<script src="/socket.io/socket.io.js"></script>
@@ -25,16 +34,17 @@
 		  });
 
 		  // to preserve the order: create, add stream and then offer/answer
-		  foo.on('stream', function() {
-		  	foo.use(signal('room'));
-		  });
+		  // foo.on('stream', function() {
+		  // 	foo.use(signal('room'));
+		  // });
 
 		  foo.on('message', function(data) {
 		  	console.log(data);
 		  });
 
-		  foo.use(video('.skype'));
-		  //foo.use(channel('skype'));
+		  //foo.use(video('.skype'));
+		  foo.use(channel('skype'));
+		  foo.use(signal('room'));
 		</script>
 	</body>
 </body>
