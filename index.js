@@ -13,7 +13,7 @@ module.exports = function(servers) {
 
 	// initialize peer with stun and turn servers
 
-	var hangout = peer(JSON.parse(servers));
+	hangout = peer(JSON.parse(servers));
 
 
 	// start handshake when video is captured
@@ -25,7 +25,7 @@ module.exports = function(servers) {
 
 	// display remote video when added
 
-	hangout.on('remote stream', function() {
+	hangout.on('remote stream', function(stream) {
 		var video = document.querySelector('.you');
 		video.src = window.URL.createObjectURL(stream);
 		video.play();
