@@ -17,7 +17,6 @@ app.set('view engine', 'jade');
 
 
 module.exports = function(urls, port) {
-  console.log(urls);
   app.get('/', function(req, res){
     res.render('hangout', {
       servers: JSON.stringify(urls)

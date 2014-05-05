@@ -45,12 +45,11 @@ var port = program.port || 3000;
 
 sturn(function(urls) {
   server(urls, port);
+  localtunnel(port, function(err, tunnel) {
+    if (err) {
+      console.log('error', err);
+    }
+    open(tunnel.url);
+    console.log(tunnel.url);
+  });
 });
-
-// localtunnel(port, function(err, tunnel) {
-//   if (err) {
-//     console.log('error', err);
-//   }
-//   open(tunnel.url);
-//   console.log(tunnel.url);
-// });
