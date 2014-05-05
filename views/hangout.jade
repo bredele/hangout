@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title Hangout
+    //- link(rel="stylesheet", href="/app/style.css")
+  body
+    video.me
+    video.you
+    script(src="/socket.io/socket.io.js")    	
+    script(src="/app/build.js")
+    script.
+      var servers = '#{servers}'.replace(/&quot;/gi, '"');
+      require('hangout')(servers)
