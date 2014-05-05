@@ -3,6 +3,7 @@ hangout
 
   A secured peer to peer video application in your browser.
 
+  Hangout is based on **[peer](http://github.com/bredele/peer)** and is still experimental.
 
 ## Installation
 
@@ -34,6 +35,15 @@ Examples:
   # create a hangout with specific port:
   $ hangout -p 8080
 ```
+
+## Note
+
+
+  About 20% of peer to peer connections need a turn server. A turn server is higly requested if you are behing a NAT.
+
+  Every hangout session has turn metadata (see [sturn](http://github.com/bredele/sturn)). However it's possible the turn server is not available.
+
+  If you see a black screen you should probably start a new hangout session which request a new turn server.
 
 ## License
 
