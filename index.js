@@ -13,7 +13,7 @@ module.exports = function(servers) {
 
 	// initialize peer with stun and turn servers
 
-	var hangout = peer(servers);
+	var hangout = peer(JSON.parse(servers));
 
 
 	// start handshake when video is captured
