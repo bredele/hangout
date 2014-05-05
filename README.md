@@ -10,6 +10,7 @@ with [nodejs](http://nodejs.org):
 
 	$ npm install hangout -g
 
+Hangout works only with the latest versions of Google chrome and Mozilla Firefox.
 
 ## Usage
 
