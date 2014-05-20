@@ -1,6 +1,6 @@
 {
   "name": "hangout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Peer to peer video application through localtunnel.",
   "main": "index.js",
   "scripts": {
